@@ -32,12 +32,10 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'ProjectController::index');
+$routes->get('/', 'Home::index');
 
-$routes->group('api', ['namespace' => 'App\Controllers\API'] ,function($routes)
-{
-    $routes->add('projects/tables', 'Projects::tables', ['as' => 'api.projects.tables']);
-});
+$routes->post('sptb-datatable', 'Sptb::sptbDatatable');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
