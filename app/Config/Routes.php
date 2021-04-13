@@ -7,9 +7,8 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
-	require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /**
@@ -18,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('ProjectController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -34,9 +33,12 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'ProjectController::index');
 
-$routes->post('sptb-datatable', 'Sptb::sptbDatatable');
+$routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes) {
+    $routes->add('projects/tables', 'Projects::tables', ['as' => 'api.projects.tables']);
+    $routes->add('projects/dummy', 'Projects::dummy', ['as' => 'api.projects.dummy']);
+});
 
-$routes->post('sptb-datatable', 'Sptb::sptbDatatable');
+$routes->get('sptb-datatable', 'Sptb::sptbDatatable');
 
 /*
  * --------------------------------------------------------------------
@@ -51,7 +53,6 @@ $routes->post('sptb-datatable', 'Sptb::sptbDatatable');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

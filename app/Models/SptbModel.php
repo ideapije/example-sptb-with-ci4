@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use CodeIgniter\HTTP\Request
+use CodeIgniter\HTTP\Request;
 use CodeIgniter\Model;
 
 class SptbModel extends Model
@@ -43,7 +43,7 @@ class SptbModel extends Model
     public function getSptbDatatable(Request $request)
     {
         // server side here
-        $keyword = $request->getPost('search')['value']);
+        $keyword = $request->getPost('search')['value'];
         $orderByCol = $request->getPost('order')['0']['column'];
         $orderByDir = $request->getPost('order')['0']['dir'];
 
