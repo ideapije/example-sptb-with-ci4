@@ -2,6 +2,7 @@
 
 namespace App\Controllers\API;
 
+use Carbon\Carbon;
 use CodeIgniter\API\ResponseTrait;
 use DataTables;
 
@@ -47,12 +48,13 @@ class Projects extends \CodeIgniter\Controller
             'pass' => env('database.default.password'),
         ];
         $view = \Config\Services::renderer();
-        $columns    =  [
+
+        $columns = [
             [
                 'db' => 'departure_date',
                 'dt' => 0,
-                'formatter' => function () {
-                    return \Carbon\Carbon::now()->subDays(3)->format('d/m/Y');
+                'formatter' => function (string $value, array $row) {
+                    return Carbon::parse($value)->format('d/m/Y');
                 }
             ],
             ['db' => 'customer', 'dt' => 1],
@@ -68,8 +70,8 @@ class Projects extends \CodeIgniter\Controller
             [
                 'db' => 'id',
                 'dt' => 5,
-                'formatter' => function () use ($view) {
-                    return $view->render('partials/table-action');
+                'formatter' => function (string $value, array $row) use ($view) {
+                    return $view->setVar('id', $value)->render('partials/table-action');
                 }
             ]
         ];

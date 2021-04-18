@@ -1,11 +1,17 @@
 <div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-warning">
+  <a href="<?= isset($id) ? route_to('projects.edit', $id) : '#'; ?>" class="btn btn-warning">
     <i class="far fa-edit"></i>
-  </button>
-  <button type="button" class="btn btn-primary">
+  </a>
+
+  <a href="#" class="btn btn-primary">
     <i class="fas fa-print"></i>
-  </button>
-  <button type="button" class="btn btn-danger">
+  </a>
+
+  <a href="<?= isset($id) ? route_to('projects.delete', $id) : '#'; ?>" class="btn btn-danger" onclick="deleteProject(event, this);">
     <i class="far fa-trash-alt"></i>
-  </button>
+    <form action="<?= route_to('projects.delete', $id); ?>" method="post">
+        <input type="hidden" name="<?= csrf_token(); ?>" value="<?= csrf_hash(); ?>">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+  </a>
 </div>

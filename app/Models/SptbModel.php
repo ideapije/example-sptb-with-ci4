@@ -10,6 +10,10 @@ class SptbModel extends Model
     protected $table      = 'sptb';
     protected $primaryKey = 'id';
 
+    protected $allowedFields = [
+        'departure_date', 'customer', 'project', 'type', 'status',
+    ];
+
     protected $useAutoIncrement = true;
 
     protected $columnOrder = [
@@ -71,12 +75,12 @@ class SptbModel extends Model
         if ($request->getPost('length') != -1) {
             $this->dt->limit($request->getPost('length'), $request->getPost('start'));
         }
-        
+
         $query = $this->dt->get();
         $data['data'] = $query->getResult();
         $data['countFiltered'] = $this->dt->countAllResults();
         $data['countAll'] = $this->db->table($this->table)->countAllResults();
-        
+
         return $data;
 
     }

@@ -18,4 +18,10 @@ $(document).ready(function() {
         "ajax": "<?= route_to('api.projects.tables') ?>"
     } );
 } );
+
+  function deleteProject(event, element) {
+    event.preventDefault();
+
+    $(element).children('form').submit();
+  }
 </script>

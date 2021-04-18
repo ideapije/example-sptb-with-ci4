@@ -40,6 +40,16 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 
 $routes->get('sptb-datatable', 'Sptb::sptbDatatable');
 
+$routes->group('projects', function ($routes) {
+    $routes->get('new', 'ProjectController::new', ['as' => 'projects.new']);
+    $routes->post('/', 'ProjectController::create', ['as' => 'projects.create']);
+    $routes->get('/', 'ProjectController::index', ['as' => 'projects.index']);
+    $routes->get('(:num)/edit', 'ProjectController::edit/$1', ['as' => 'projects.edit']);
+    $routes->put('(:num)', 'ProjectController::update/$1', ['as' => 'projects.put']);
+    $routes->patch('(:num)', 'ProjectController::update/$1', ['as' => 'projects.patch']);
+    $routes->delete('(:num)', 'ProjectController::delete/$1', ['as' => 'projects.delete']);
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
