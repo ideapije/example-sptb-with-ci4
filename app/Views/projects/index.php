@@ -1,9 +1,16 @@
 <?= $this->extend('layouts/default') ?>
 
 <?= $this->section('content') ?>
+<?php if (session()->has('status') && session()->has('message')): ?>
+  <div class="alert alert-<?= session()->get('status'); ?> alert-dismissible fade show" role="alert">
+    <?= session()->get('message'); ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<?php endif; ?>
+
 <div class="row">
   <div class="col">
-    <a href="#" class="btn btn-primary mb-3">
+    <a href="<?= route_to('projects.new'); ?>" class="btn btn-primary mb-3">
       Buat SPtB
     </a>
   </div>

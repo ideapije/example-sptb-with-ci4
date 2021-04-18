@@ -32,6 +32,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'ProjectController::index');
+$routes->get('/export/docs', 'ProjectController::exportToDocs', ['as' => 'projects.export.docs']);
 
 $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes) {
     $routes->add('projects/tables', 'Projects::tables', ['as' => 'api.projects.tables']);
@@ -39,6 +40,15 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], function ($routes)
 });
 
 $routes->get('sptb-datatable', 'Sptb::sptbDatatable');
+
+$routes->group('projects', function ($routes) {
+    $routes->get('new', 'ProjectController::new', ['as' => 'projects.new']);
+    $routes->post('/', 'ProjectController::create', ['as' => 'projects.create']);
+    $routes->get('/', 'ProjectController::index', ['as' => 'projects.index']);
+    $routes->get('edit/(:num)', 'ProjectController::edit/$1', ['as' => 'projects.edit']);
+    $routes->put('update/(:num)', 'ProjectController::update/$1', ['as' => 'projects.update']);
+    $routes->delete('(:num)', 'ProjectController::delete/$1', ['as' => 'projects.delete']);
+});
 
 /*
  * --------------------------------------------------------------------
