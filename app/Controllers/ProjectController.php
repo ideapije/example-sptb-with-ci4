@@ -59,7 +59,6 @@ class ProjectController extends BaseController
     {
         $model   = new SptbModel();
         $project = $model->find($id);
-
         if (! $project) {
             session()->setFlashData('status', 'danger');
             session()->setFlashData('message', lang('Message.error.project_not_found'));

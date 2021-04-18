@@ -18,5 +18,6 @@ return [
         'project'        => 'Project',
         'status'         => 'Status',
         'type'           => 'Type',
+        'update'         => 'Update Project'
     ],
 ];

@@ -63,8 +63,8 @@ class Projects extends \CodeIgniter\Controller
             [
                 'db' => 'status',
                 'dt' => 4,
-                'formatter' => function () use ($view) {
-                    return $view->render('partials/table-status');
+                'formatter' => function (string $value, array $row) use ($view) {
+                    return $view->setVar('status', $value)->render('partials/table-status');
                 }
             ],
             [
