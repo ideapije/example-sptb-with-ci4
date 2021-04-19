@@ -75,13 +75,21 @@ class Projects extends \CodeIgniter\Controller
                 }
             ]
         ];
+
+        $status      = $this->request->getVar('status');
+        $whereResult = '';
+        if (in_array($status, ['Backlog / TODO', 'On Progress', 'Done'])) {
+            $whereResult = "status = '$status'";
+        }
+
         return $this->setResponseFormat('json')->respond(
-            DataTables::simple(
+            DataTables::complex(
                 $this->request->getVar(),
                 $dbConnection,
                 $table = 'sptb',
                 $primaryKey = 'id',
-                $columns = $columns
+                $columns = $columns,
+                $whereResult = $whereResult
             )
         );
     }

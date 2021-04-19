@@ -18,16 +18,16 @@
 <div class="row cols-3 mb-2">
   <div class="col-md-4">
     <select name="status" id="selectStatus" class="form-select" aria-label="Dropdown Project Status">
-      <option value="">All Status</option>
-      <option value="">Backlog / TODO</option>
-      <option value="">On Progress</option>
-      <option value="">Done</option>
+      <option>All Status</option>
+      <option value="Backlog / TODO">Backlog / TODO</option>
+      <option value="On Progress">On Progress</option>
+      <option value="Done">Done</option>
     </select>
   </div>
 </div>
 <div class="row mb-3">
   <div class="col-md-4">
-    <h4><?= $status ?? 'All Status' ?></h4>
+    <h4 id="listStatus"><?= 'All Status' ?></h4>
   </div>
 </div>
 <div class="row">
