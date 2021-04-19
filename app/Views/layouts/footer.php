@@ -11,12 +11,22 @@
 <script src="<?= base_url()?>/js/bootstrap.bundle.min.js" ></script>
 <script>
 $(document).ready(function() {
-    $('#dataTables').DataTable( {
+    var table = $('#dataTables').DataTable( {
         "dom": '<"clearfix"<"float-start"l><"float-end"f>><"mt-3"t><"row"<"col"i><"col"p>>',
         "processing": true,
         "serverSide": true,
-        "ajax": "<?= route_to('api.projects.tables') ?>"
+        "ajax": {
+          "url": "<?= route_to('api.projects.tables') ?>",
+          "data": function (data) {
+            data.status = $('select#selectStatus').val()
+          }
+        }
     } );
+
+    $('select#selectStatus').change(function() {
+      $('h4#listStatus').html($(this).val() ?? 'All Status');
+      table.draw();
+    });
 } );
 
   function deleteProject(event, element) {
