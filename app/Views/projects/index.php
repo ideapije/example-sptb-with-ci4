@@ -10,7 +10,7 @@
 
 <div class="row">
   <div class="col">
-    <a href="<?= route_to('projects.new'); ?>" class="btn btn-primary mb-3">
+    <a href="<?= base_url(route_to('projects.new')); ?>" class="btn btn-primary mb-3">
       Buat SPtB
     </a>
   </div>

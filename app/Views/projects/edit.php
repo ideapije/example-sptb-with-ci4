@@ -24,7 +24,7 @@
 
 <div class="row">
     <div class="col">
-        <form action="<?= route_to('projects.update', $project['id']); ?>" method="POST">
+        <form action="<?= base_url(route_to('projects.update', $project['id'])); ?>" method="POST">
             <input type="hidden" name="<?= csrf_token(); ?>" value="<?= csrf_hash(); ?>">
             <input type="hidden" name="_method" value="PUT" />
             <div class="mb-3">
@@ -66,7 +66,7 @@
                     </div>
                 <?php endif; ?>
             </div>
-            <?php 
+            <?php
                 $projectStatus = old('status') ?? $project['status'];
             ?>
             <div class="mb-3">

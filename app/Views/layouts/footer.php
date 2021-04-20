@@ -16,7 +16,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-          "url": "<?= route_to('api.projects.tables') ?>",
+          "url": "<?= base_url(route_to('api.projects.tables')); ?>",
           "data": function (data) {
             data.status = $('select#selectStatus').val()
           }

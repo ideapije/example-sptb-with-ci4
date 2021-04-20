@@ -24,7 +24,7 @@
 
 <div class="row">
   <div class="col">
-    <form action="<?= route_to('projects.create'); ?>" method="POST">
+    <form action="<?= base_url(route_to('projects.create')); ?>" method="POST">
       <input type="hidden" name="<?= csrf_token(); ?>" value="<?= csrf_hash(); ?>">
 
       <div class="mb-3">
