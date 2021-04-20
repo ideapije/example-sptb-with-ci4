@@ -1,63 +1,57 @@
-# CodeIgniter 4 Application Starter
+## About Repository
+We make this repository to learn how to create application with Codeigniter v4. There are 3 points you will get in this repository.
+1. API routing.
+2. Datatables server side and
+3. PHPDocs to export data into Word docs format such as .docx, .doc or .ods
 
-## What is CodeIgniter?
+## System Requirements
+This repository requires the following :
+- PHP 5.3.3+ or higher.
+- [XML Parser extension](http://www.php.net/manual/en/xml.installation.php)
+- [Laminas Escaper component](https://docs.laminas.dev/laminas-escaper/intro/)
+- [Zip extension](http://php.net/manual/en/book.zip.php) (optional, used to write OOXML and ODF)
+- [GD extension](http://php.net/manual/en/book.image.php) (optional, used to add images)
+- [XMLWriter extension](http://php.net/manual/en/book.xmlwriter.php) (optional, used to write OOXML and ODF)
+- [XSL extension](http://php.net/manual/en/book.xsl.php) (optional, used to apply XSL style sheet to template )
+- [dompdf library](https://github.com/dompdf/dompdf) (optional, used to write PDF)
+## Get Started
+1. Make sure you already installed Composer, you can find instalation composer [here](https://getcomposer.org/).
+2. Open your terminal and follow the instructions below one by one.
+```
+git clone https://github.com/ideapije/example-sptb-with-ci4.git
+cd example-sptb-with-ci4
+composer install
+cp env .env
+vi .env
+```
+3. Setup configuration in ```.env file``` like this. 
+> * Please don't replace all with this section, but find the key and insert the following value below.
+```
+app.baseURL = 'http://localhost' // if you use server built in with port 8080 or http://localhost/example-sptb-with-ci4 if you place the project in public html.
+...
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+#--------------------------------------------------------------------
+# DATABASE
+#--------------------------------------------------------------------
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+database.default.hostname = localhost
+database.default.database = your_database
+database.default.username = root //default mysql user
+database.default.password = // leave empty if mysql password not required
+database.default.DBDriver = MySQLi
+```
+4. run migration
+```
+php spark migrate
+```
+5. run app (optional)
+```
+php spark serve
+```
+Now point your browser to the correct URL you will be greeted by a welcome screen. Try it now by heading to the following URL:
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+[http://localhost:8080](http://localhost:8080)
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
 
-## Installation & updates
-
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
-
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
-
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.2 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+6. Finish
+If you have some advice for this documentation or something else with this repository then Fork this reposity and make Pull Request. We are very welcome for anyone who want to improve this repository. 
