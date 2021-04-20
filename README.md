@@ -1,10 +1,10 @@
-## About Repository
+## ℹ️ About Repository
 We make this repository to learn how to create application with Codeigniter v4. There are 3 points you will get in this repository.
 1. API routing.
 2. Datatables server side and
 3. PHPDocs to export data into Word docs format such as .docx, .doc or .ods
 
-## System Requirements
+## 🧰 System Requirements
 This repository requires the following :
 - PHP 5.3.3+ or higher.
 - [XML Parser extension](http://www.php.net/manual/en/xml.installation.php)
@@ -14,7 +14,7 @@ This repository requires the following :
 - [XMLWriter extension](http://php.net/manual/en/book.xmlwriter.php) (optional, used to write OOXML and ODF)
 - [XSL extension](http://php.net/manual/en/book.xsl.php) (optional, used to apply XSL style sheet to template )
 - [dompdf library](https://github.com/dompdf/dompdf) (optional, used to write PDF)
-## Get Started
+## 🚀 Get Started
 1. Make sure you already installed Composer, you can find instalation composer [here](https://getcomposer.org/).
 2. Open your terminal and follow the instructions below one by one.
 ```
@@ -25,7 +25,7 @@ cp env .env
 vi .env
 ```
 3. Setup configuration in ```.env file``` like this. 
-> * Please don't replace all with this section, but find the key and insert the following value below.
+> Please don't replace all inside the .env file with this section, but find the key and insert the following value below.
 ```
 app.baseURL = 'http://localhost' // if you use server built in with port 8080 or http://localhost/example-sptb-with-ci4 if you place the project in public html.
 ...
@@ -53,5 +53,8 @@ Now point your browser to the correct URL you will be greeted by a welcome scree
 [http://localhost:8080](http://localhost:8080)
 
 
-6. Finish
+6. Finish 
+
+## 📫 Mailbox
+
 If you have some advice for this documentation or something else with this repository then Fork this reposity and make Pull Request. We are very welcome for anyone who want to improve this repository. 
